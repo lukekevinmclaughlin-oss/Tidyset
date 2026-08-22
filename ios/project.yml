@@ -1,0 +1,39 @@
+name: TidysetMobile
+options:
+  deploymentTarget:
+    iOS: "17.0"
+    macOS: "14.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    MARKETING_VERSION: "1.1"
+    CURRENT_PROJECT_VERSION: "120"
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: 24UCS53598
+    CODE_SIGN_STYLE: Automatic
+    GENERATE_INFOPLIST_FILE: YES
+targets:
+  Tidyset:
+    type: application
+    supportedDestinations: [macOS, iOS]
+    sources:
+      - path: Sources
+      - path: Resources/Assets.xcassets
+      - path: Resources/PrivacyInfo.xcprivacy
+      - path: Resources/Web
+        type: folder
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.lukemclaughlin.tidyset
+        PRODUCT_NAME: Tidyset
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        INFOPLIST_KEY_CFBundleDisplayName: Tidyset
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.productivity
+        CODE_SIGN_ENTITLEMENTS[sdk=macosx*]: Resources/Tidyset-macOS.entitlements
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UIFileSharingEnabled: YES
+        INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"

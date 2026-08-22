@@ -1,0 +1,75 @@
+{
+  "name": "tidyset",
+  "version": "1.1.0",
+  "description": "Tidyset \u2014 the private, fully-offline data janitor. Clean, fix and reshape messy spreadsheets. Deterministic, reproducible, no cloud, no AI.",
+  "author": "Luke McLaughlin",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "start": "electron-vite preview",
+    "build": "electron-vite build",
+    "build:mac": "electron-vite build && electron-builder --mac --arm64",
+    "build:mas": "electron-vite build && electron-builder --mac mas --arm64",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "papaparse": "^5.4.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/papaparse": "^5.3.14",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "electron": "^31.3.0",
+    "electron-builder": "^24.13.3",
+    "electron-vite": "^2.3.0",
+    "framer-motion": "^11.3.8",
+    "lucide-react": "^0.417.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5",
+    "vitest": "^2.0.5",
+    "zustand": "^4.5.4"
+  },
+  "build": {
+    "appId": "com.lukemclaughlin.tidyset",
+    "productName": "Tidyset",
+    "buildVersion": "121",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "out/**/*",
+      "resources/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "resources/AppIcon.icns",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": "arm64"
+        }
+      ],
+      "minimumSystemVersion": "12.0",
+      "extendInfo": {
+        "ElectronTeamID": "24UCS53598"
+      }
+    },
+    "mas": {
+      "category": "public.app-category.productivity",
+      "icon": "resources/AppIcon.icns",
+      "entitlements": "build/entitlements.mas.plist",
+      "entitlementsInherit": "build/entitlements.mas.inherit.plist",
+      "provisioningProfile": "build/tidyset.provisionprofile",
+      "hardenedRuntime": false,
+      "minimumSystemVersion": "12.0",
+      "extendInfo": {
+        "ElectronTeamID": "24UCS53598"
+      }
+    }
+  }
+}
