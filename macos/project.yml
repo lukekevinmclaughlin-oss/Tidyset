@@ -1,4 +1,8 @@
 name: TidysetNative
+configs:
+  Debug: debug
+  Release: release
+  Direct: release
 options:
   bundleIdPrefix: com.lukemclaughlin
   deploymentTarget:
@@ -34,6 +38,15 @@ targets:
         INFOPLIST_KEY_CFBundleDisplayName: Tidyset
         INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.productivity
         INFOPLIST_KEY_NSHumanReadableCopyright: "© 2026 Luke McLaughlin"
+      configs:
+        Direct:
+          PRODUCT_BUNDLE_IDENTIFIER: com.lukemclaughlin.tidyset.direct
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) DIRECT_DISTRIBUTION"
+          CODE_SIGN_IDENTITY: "Developer ID Application"
+          CODE_SIGN_STYLE: Manual
+          ENABLE_HARDENED_RUNTIME: YES
+          OTHER_CODE_SIGN_FLAGS: --timestamp
+          CODE_SIGN_INJECT_BASE_ENTITLEMENTS: NO
     scheme:
       testTargets:
         - TidysetEngineTests
