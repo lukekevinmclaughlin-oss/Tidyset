@@ -4,6 +4,10 @@
 
 Tidyset is a desktop app (Electron + React + TypeScript) that does the deterministic work of a data engineer's clean-up pass: standardise inconsistent values, fix broken dates and phone numbers, fill gaps, split/merge columns, cluster near-duplicates, de-duplicate records, and run custom formulas. Everything runs locally with classic algorithms, so the same input always produces the same output, and nothing ever leaves the machine.
 
+## Website
+
+See the [Mac product page](https://www.macossoftware.com/tidyset/) for screenshots, features, system requirements and the direct download edition. For help, visit [IndepApps support](https://www.macossoftware.com/support/).
+
 ## Why it's different
 - **100% offline & deterministic.** No network calls, no API keys, no model that could ever mangle a value unpredictably. Reproducible byte-for-byte.
 - **Non-destructive by design.** The source table is never mutated. Every action is a reversible step in a pipeline.
